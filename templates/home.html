@@ -1,0 +1,140 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+  </head>
+  <body>
+    <!--navbar start-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+  <a class="navbar-brand" href="{% url 'accounts:home' %}">DPS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class= "col-auto">
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'accounts:home' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link active" href="#{% url 'accounts:home' %}">Admin</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'accounts:signin' %}">Login</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link active" href="{% url 'accounts:signup' %}">SignUp</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'accounts:predict_opd' %}">Predict</a>
+      </li>
+      
+    </ul>
+ </div>
+</div>
+</div>
+</nav>
+<!-- navbar end-->
+
+
+
+<!--main start-->
+
+
+
+<div class="container-fluid">
+        <div class="row text-center">
+            <div class="col bg-overlay">
+                <h3>Diabetes Overview</h3>
+                <p style="line-height: 100px;">The path to understanding diabetes starts here.</p>
+            </div>
+        </div>
+        <div class="row  text-center">
+            <div class="col  b2" >
+                <h3>No matter where you are in your fight, here’s where you need to be.</h3>
+                <p>Whether you’ve been newly diagnosed, have been fighting against type 1 or type 2 diabetes for a while or are helping a loved one, you’ve come to the right place. This is the start of gaining a deeper understanding of how you can live a healthier life—with all the tools, health tips and food ideas you need. Wherever you’re at with this disease, know that you have options and that you don’t have to be held back. You can still live your best life. All you have to do is take action and stick with</p>
+                <p>New to Diabetes?<a href="">  Learn how diabetes is diagnosed.</a></p>
+                          <h2>What is Daibetes</h2>
+            <p>Diabetes is a chronic disease that occurs when the pancreas is no longer able to make insulin, or when the body cannot make good use of the insulin it produces.
+
+Insulin is a hormone made by the pancreas, that acts like a key to let glucose from the food we eat pass from the blood stream into the cells in the body to produce energy. All carbohydrate foods are broken down into glucose in the blood. Insulin helps glucose get into the cells. 
+
+Not being able to produce insulin or use it effectively leads to raised glucose levels in the blood (known as hyperglycaemia). Over the long-term high glucose levels are associated with damage to the body and failure of various organs and tissues.</p>
+            </div>
+        </div>
+</div>
+<div class="card-group">
+  <div class="card">
+    <img src="https://media.istockphoto.com/photos/little-girl-with-type-i-diabetes-picture-id485446207?k=6&m=485446207&s=612x612&w=0&h=21Rw3G_m8kFPkAprl-wg8MHQMPaIZyZr-LYGu82-pQY=" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">TYPE 1 DIABETES</h5>
+      <p class="card-text">Type 1 diabetes can develop at any age, but occurs most frequently in children and adolescents. When you have type 1 diabetes, your body produces very little or no insulin, which means that you need daily insulin injections to maintain blood glucose levels under control.</p>
+       <a href="#" class="btn btn-primary">Learn More</a>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://media.istockphoto.com/photos/type-2-diabetes-doctor-a-test-disease-health-medical-concept-picture-id677527278?k=6&m=677527278&s=612x612&w=0&h=Xr53XyQgaUslC_52cPUMbVmPm1Iw6rKJAD8GUmqEnwc=" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">TYPE 2 DIABETES</h5>
+      <p class="card-text">Type 2 diabetes is more common in adults and accounts for around 90% of all diabetes cases. When you have type 2 diabetes, your body does not make good use of the insulin that it produces. The cornerstone of type 2 diabetes treatment is healthy lifestyle, including increased physical activity and healthy diet. </p>
+       <a href="#" class="btn btn-primary">Learn More</a>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://media.istockphoto.com/photos/pregnant-woman-having-blood-glucose-checked-picture-id512966216?k=6&m=512966216&s=612x612&w=0&h=xE5lELmgR52H9BqqSgVSspHa5SujWp4X6Ul9H0qv308=" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">GESTATIONAL DIABETES (GDM)</h5>
+      <p class="card-text">Gestational diabetes (GDM) is a type of diabetes that consists of high blood glucose during pregnancy and is associated with complications to both mother and child. GDM usually disappears after pregnancy but women affected and their children are at increased risk of developing type 2 diabetes later in life..</p>
+       <a href="#" class="btn btn-primary">Learn More</a>
+    </div>
+  </div>
+</div>
+
+<!--main end-->
+
+<!--footer start-->
+<footer>
+  <p>Author: Umar Wani<br>
+  <a href="mailto:umarwanier@gmail.com">umarwanier@gmail.com</a></p>
+</footer>
+ <!-- footer end-->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     {% if messages %}
+     <script>
+      {% for message in messages %}
+       swal({
+        text:"{{message}}",
+        icon:"success",
+        button: false,
+        timer: 2000,
+    })
+      {% endfor %}
+     </script>
+    {% endif %}
+
+  </body>
+</html>

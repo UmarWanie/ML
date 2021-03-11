@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LoginForm</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<img class="wave" src="{% static 'images/wave.png' %}">
+	<div class="container">
+		<div class="img">
+			<img src="{% static 'images/bg.svg' %}">
+		</div>
+		<div class="login-content">
+			<form method = "POST" action="">
+				{% csrf_token %}
+				<img src="{%static 'images/avatar.svg' %}">
+				<h2 class="title">Welcome</h2>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>Username</h5>
+           		   		{{form.username}}
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Password</h5>
+           		    	{{form.password}}
+            	   </div>
+            	</div>
+            	<a href="{% url 'accounts:signup' %}">Create Account</a>
+            	<input type="submit" class="btn" value="Login">
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      {% if messages %}
+     <script>
+      {% for message in messages %}
+       swal({
+        text:"{{message}}",
+        icon:"warning",
+        className:"bg-warning"
+    })
+      {% endfor %}
+     </script>
+    {% endif %}
+<!--  {% if form.errors %}
+     <script>
+    {% for field in form %}
+        {% for error in field.errors %}
+            
+                swal({
+                  text:"{{ field.label }}{{ error|escape }}",
+                  icon:"warning",
+                  className:"bg-warning"
+                })
+                 
+
+        {% endfor %}
+    {% endfor %}
+     {% for error in form.non_field_errors %}
+        
+            swal("{{ error|escape }}")
+        
+     {% endfor %}
+  </script>
+{% endif %} -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

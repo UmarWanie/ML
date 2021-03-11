@@ -1,0 +1,194 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'images/apple-icon.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon.ico' %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Dashboard</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/light-bootstrap-dashboard.css' %} " rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <!-- <link href="{% static 'css/demo.css' %}" rel="stylesheet" /> -->
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar" data-image="{% static 'images/sidebar-5.jpg' %}">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="{% url 'accounts:dashboard' %}" class="simple-text">
+                        {{request.user}}
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'accounts:dashboard' %}">
+                            <!-- <i class="nc-icon nc-chart-pie-35"></i> -->
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./user.html">
+                            <i class="nc-icon nc-circle-09"></i>
+                            <p>Update Profile</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{% url 'accounts:predict' %}">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>Predict</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{% url 'accounts:myTable' %}">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>Table List</p>
+                        </a>
+                    </li>
+             
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#pablo"> Dashboard </a>
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="nav navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-toggle="dropdown">
+                                    <i class="nc-icon nc-palette"></i>
+                                    <span class="d-lg-none">Dashboard</span>
+                                </a>
+                            </li>
+                         
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'accounts:signout' %}">
+                                    <span class="no-icon">Log out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+
+
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card strpied-tabled-with-hover">
+                                <div class="card-header ">
+                                    <h4 class="card-title">Striped Table with Hover</h4>
+                                    <p class="card-category">Here is a subtitle for this table</p>
+                                </div>
+                                <div class="card-body table-full-width table-responsive">
+                                    <table class="table table-hover table-striped">
+                                        <thead>
+                                            <th>User Name</th>
+                                            <th>Gender</th>
+                                            <th>Polyuria</th>
+                                            <th>Polydipsia</th>
+                                            <th>Sudden_weight_loss</th>
+                                            <th>Partial_paresis</th>
+                                            <th>Polyphagia</th>
+                                            <th>Irritability</th>
+                                            <th>Alopecia</th>
+                                            <th>Visual_blurring</th>
+                                            <th>Weakness</th>
+                                            <th>Prediction</th>
+                                        </thead>
+                                        <tbody>
+                                            {% for i in info%}
+                                            <tr>
+
+                                                <td>{{i.patient}}</td>
+                                                <td>{{user.profile.get_gender_display}}</td>
+                                                <td>{{i.get_Polyuria_display}}</td>
+                                                <td>{{i.get_Polydipsia_display}}</td>
+                                                <td>{{i.get_Sudden_weight_loss_display}}</td>
+                                                <td>{{i.get_Partial_paresis_display}}</td>
+                                                <td>{{i.get_Polyphagia_display}}</td>
+                                                <td>{{i.get_Irritability_display}}</td>
+                                                <td>{{i.get_Alopecia_display}}</td>
+                                                <td>{{i.get_Visual_blurring_display}}</td>
+                                                <td>{{i.get_Weakness_display}}</td>
+                                                <td>{{i.Prediction}}</td>
+                                              
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+       
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav>
+                  <!--  -->
+                        <p class="copyright text-center">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                            <strong>UmarWani</strong> made with love for a better web
+                        </p>
+                    </nav>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+</body>
+<!--   Core JS Files   -->
+<script src="{% static 'js/core/jquery.3.2.1.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/core/popper.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/core/bootstrap.min.js' %}" type="text/javascript"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="{% static 'js/plugins/bootstrap-switch.js' %}"></script>
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!--  Chartist Plugin  -->
+<script src="{% static 'js/plugins/chartist.min.js' %}"></script>
+<!--  Notifications Plugin    -->
+<script src="{% static 'js/plugins/bootstrap-notify.js' %}"></script>
+<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
+<script src="{% static 'js/light-bootstrap-dashboard.js' %} " type="text/javascript"></script>
+<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
+<script src="{% static 'js/demo.js' %}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Javascript method's body can be found in assets/js/demos.js
+        demo.initDashboardPageCharts();
+
+        demo.showNotification();
+
+    });
+</script>
+
+</html>
