@@ -4,11 +4,15 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
+   <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="{% static 'images/apple-icon.png' %}">
     <link rel="icon" type="image/png" href="{% static 'img/favicon.ico' %}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <!-- <link href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.bootstrap4.min.csss" rel="stylesheet" type="text/css"/> -->
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -18,6 +22,20 @@
     <link href="{% static 'css/light-bootstrap-dashboard.css' %} " rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <!-- <link href="{% static 'css/demo.css' %}" rel="stylesheet" /> -->
+    <style type="text/css">
+      label{
+       width: 180px;
+       clear: left;
+       text-align: right;
+       padding-right: 10px;
+      }
+      input,label{
+       float: left;
+      }
+      button{
+        margin-left: 180px;
+      }
+    </style>
 </head>
 
 <body>
@@ -37,12 +55,12 @@
                 <ul class="nav">
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'accounts:dashboard' %}">
-                            <!-- <i class="nc-icon nc-chart-pie-35"></i> -->
+                            <i class="nc-icon nc-chart-pie-35"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="./user.html">
+                        <a class="nav-link" href="{% url 'accounts:profile' %}">
                             <i class="nc-icon nc-circle-09"></i>
                             <p>Update Profile</p>
                         </a>
@@ -67,7 +85,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#pablo"> Dashboard </a>
+                    <a class="navbar-brand" href="{% url 'accounts:home' %}"> <i class="fas fa-home"></i>HOME </a>
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -75,15 +93,11 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <ul class="nav navbar-nav mr-auto">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="dropdown">
-                                    <i class="nc-icon nc-palette"></i>
-                                    <span class="d-lg-none">Dashboard</span>
-                                </a>
-                            </li>
+                            
                          
-                            <li class="nav-item">
+                            <li class="nav-item ml-5">
                                 <a class="nav-link" href="{% url 'accounts:signout' %}">
+                                    <i class="fas fa-sign-out-alt"></i>
                                     <span class="no-icon">Log out</span>
                                 </a>
                             </li>
@@ -156,7 +170,7 @@
                             <script>
                                 document.write(new Date().getFullYear())
                             </script>
-                            <strong>UmarWani</strong> made with love for a better web
+                            <strong>UmarWani</strong> made with love for a better life
                         </p>
                     </nav>
                 </div>
@@ -181,14 +195,7 @@
 <script src="{% static 'js/light-bootstrap-dashboard.js' %} " type="text/javascript"></script>
 <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
 <script src="{% static 'js/demo.js' %}"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts();
 
-        demo.showNotification();
 
-    });
-</script>
 
 </html>

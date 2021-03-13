@@ -13,6 +13,7 @@
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <!-- CSS Files -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
     <link href="{% static 'css/light-bootstrap-dashboard.css' %} " rel="stylesheet" />
@@ -37,7 +38,7 @@
                 <ul class="nav">
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'accounts:dashboard' %}">
-                            <!-- <i class="nc-icon nc-chart-pie-35"></i> -->
+                            <i class="nc-icon nc-chart-pie-35"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
@@ -67,7 +68,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#pablo"> Dashboard </a>
+                    <a class="navbar-brand" href="{% url 'accounts:home' %}"> <i class="fas fa-home"></i>HOME </a>
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -75,15 +76,10 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <ul class="nav navbar-nav mr-auto">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="dropdown">
-                                    <i class="nc-icon nc-palette"></i>
-                                    <span class="d-lg-none">Dashboard</span>
-                                </a>
-                            </li>
-                         
-                            <li class="nav-item">
+                                                     
+                            <li class="nav-item ml-5">
                                 <a class="nav-link" href="{% url 'accounts:signout' %}">
+                                    <i class="fas fa-sign-out-alt"></i>
                                     <span class="no-icon">Log out</span>
                                 </a>
                             </li>
@@ -174,7 +170,7 @@
                             <script>
                                 document.write(new Date().getFullYear())
                             </script>
-                            <strong>UmarWani</strong> made with love for a better web
+                            <strong>UmarWani</strong> made with love for a better life
                         </p>
                     </nav>
                 </div>

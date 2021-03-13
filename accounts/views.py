@@ -95,7 +95,7 @@ def ad_login(request):
     
 
 def predict_opd(request):
-    prediction=polyu=polyd=swl=par_par=polyp=BMI=irrit=alop=v_bull=wkns=Gender = 0
+    prediction=username=polyu=polyd=swl=par_par=polyp=BMI=irrit=alop=v_bull=wkns=Gender = 0
     if request.method=='POST':
         form = PredForm2(request.POST)
         if form.is_valid():
@@ -128,13 +128,16 @@ def predict_opd(request):
                 print(prediction)
                 instance.save()
                 print(Gender)
+
+                
+
                 
 
 
 
     else:
         form = PredForm2()
-    return render( request, "predict_opd.html",{"prediction":prediction, "Polyuria":polyu,"Polydipsia":polyd, "Gender":Gender, "Sudden_weight_loss":swl,
+    return render( request, "predict_opd.html",{"username":username, "prediction":prediction, "Polyuria":polyu,"Polydipsia":polyd, "Gender":Gender, "Sudden_weight_loss":swl,
      "Partial_paresis":par_par, "Polyphagia":polyp, "Irritability":irrit, "Alopecia":alop,"Visual_blurring":v_bull,'Weakness':wkns,"form": form})
 
 

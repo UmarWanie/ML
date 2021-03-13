@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" href="{% static 'img/favicon.ico' %}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Dashboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" type="text/css"/>
     <!-- <link href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css"/>
     <link href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.bootstrap4.min.csss" rel="stylesheet" type="text/css"/> -->
@@ -53,8 +54,8 @@
                 </div>
                 <ul class="nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'accounts:dashboard' %}">
-                            <!-- <i class="nc-icon nc-chart-pie-35"></i> -->
+                        <a class="nav-link" href="">
+                            <i class="nc-icon nc-chart-pie-35"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
@@ -99,7 +100,7 @@
             <div class="container-fluid ml-5">
 
 
-            <form method = 'POST' action="" class="pt-3">
+            <form method = 'POST' action="" class="pt-3" id="myform">
               {% csrf_token %}
               <div class="row form-inline pt-3">
                 <div class="col-md-6"><label>{{form.username.label}}:</label>{{form.username}}</div>
@@ -123,151 +124,13 @@
               </div>
               <div class="row form-inline pt-3 pb-3">
                 <div class="col-md-6"><label>{{form.Weakness.label}}:</label>{{form.Weakness}}</div>
-                <div class="col-md-6"><button type="submit" class="btn  btn-info btn-fill">Submit</button></div>
+                <div class="col-md-6"><button type="submit" class="btn  btn-info btn-fill" >Submit</button></div>
               </div>
             
             </form>
             </div>
-
-
-           
-       
-            <footer class="footer">
-                <div class="container-fluid">
-                    <nav>
-                  <!--  -->
-                        <p class="copyright text-center">
-                            ©
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script>
-                            <strong>UmarWani</strong> made with love for a better web
-                        </p>
-                    </nav>
-                </div>
-            </footer>
-        </div>
-    </div>
-
-</body>
-<!--   Core JS Files   -->
-<script src="{% static 'js/core/jquery.3.2.1.min.js' %}" type="text/javascript"></script>
-<script src="{% static 'js/core/popper.min.js' %}" type="text/javascript"></script>
-<script src="{% static 'js/core/bootstrap.min.js' %}" type="text/javascript"></script>
-<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-<script src="{% static 'js/plugins/bootstrap-switch.js' %}"></script>
-<!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-<!--  Chartist Plugin  -->
-<script src="{% static 'js/plugins/chartist.min.js' %}"></script>
-<!--  Notifications Plugin    -->
-<script src="{% static 'js/plugins/bootstrap-notify.js' %}"></script>
-<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
-<script src="{% static 'js/light-bootstrap-dashboard.js' %} " type="text/javascript"></script>
-<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
-
-
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <title>pred</title>
-
-
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-    <link href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css"/>
-    <link href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.bootstrap4.min.csss" rel="stylesheet" type="text/css"/>
-</head>
-<body>
-  <div class="card text-center">
-  <div class="card-header">
-    Featured
-  </div>
-  <div class="card-body">
-
-      <form method="POST" action="">
-        {% csrf_token %}
-         
-          <table class="table table-info">
-            <tr>
-                <th>Polyuria</th>
-            <td>{{form.Polyuria}}</td>
-
-            </tr>
-             <tr>
-                <th>Polydipsia</th>
-            <td>{{form.Polydipsia}}</td>
-
-            </tr>
-             <tr>
-                <th>Sudden_weight_loss</th>
-            <td>{{form.Sudden_weight_loss}}</td>
-
-            </tr>
-             <tr>
-                <th>Partial_paresis</th>
-            <td>{{form.Partial_paresis}}</td>
-
-            </tr>
-             <tr>
-                <th>Polyphagia</th>
-            <td>{{form.Polyphagia}}</td>
-
-            </tr>
-             <tr>
-                <th>Irritability</th>
-            <td>{{form.Irritability}}</td>
-
-            </tr>
-             <tr>
-                <th>Alopecia</th>
-            <td>{{form.Alopecia}}</td>
-
-            </tr>
-             <tr>
-                <th>Visual_blurring</th>
-            <td>{{form.Visual_blurring}}</td>
-
-            </tr>
-             <tr>
-                <th>Weakness </th>
-            <td>{{form.Weakness}}</td>
-
-            </tr>
-            
-          
-         </table>
-
-     <input type="submit" value=""></input>      
-  </form>
-   
-  </div>
-  <div class="card-footer text-muted">
-    2 days ago
-  </div>
-</div>
-
-<div class="panel"></div>
-    <div class="container table-responsive panel-body">
+            <button type="button" class="btn btn-info btn-fill" id="click">Check Result</button>
+            <div class="container table-responsive panel-body " id="res">
         <table width="100%" class="datatable table table-striped table-bordered table-hover">
             <thead>
                 <tr>
@@ -296,47 +159,68 @@
                     <td>{{Alopecia}}</td>
                     <td>{{Visual_blurring}}</td>
                     <td>{{Weakness}}</td>
-                    <td>{{Prediction}}</td>
+                    <td>{{prediction}}</td>
                 </tr>
                 
             </tbody>
         </table>
     </div>
 </div> 
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.bootstrap4.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-  <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.colVis.min.js"></script>
-<script>
-"use strict";
-$(document).ready(function () {
 
-    //bsCustomFileInput.init();
-    //datatable
-    $('.datatable').DataTable({ 
-        responsive: true, 
-        dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp", 
-        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]], 
-        buttons: [  
-        {extend: 'copy', className: 'btn-sm'}, 
-        {extend: 'csv', title: 'ExampleFile', className: 'btn-sm'}, 
-        {extend: 'excel', title: 'ExampleFile', className: 'btn-sm', title: 'exportTitle'}, 
-        {extend: 'pdf', title: 'ExampleFile', className: 'btn-sm'}, 
-        {extend: 'print', className: 'btn-sm'} 
-        ] 
-    });    
-});
 
-</script>
+           
+       
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav>
+                  <!--  -->
+                        <p class="copyright text-center">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                            <strong>UmarWani</strong> made with love for a better life
+                        </p>
+                    </nav>
+                </div>
+            </footer>
+        </div>
+    </div>
 
 </body>
+<!--   Core JS Files   -->
+<script src="{% static 'js/core/jquery.3.2.1.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/core/popper.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/core/bootstrap.min.js' %}" type="text/javascript"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="{% static 'js/plugins/bootstrap-switch.js' %}"></script>
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!--  Chartist Plugin  -->
+<script src="{% static 'js/plugins/chartist.min.js' %}"></script>
+<!--  Notifications Plugin    -->
+<script src="{% static 'js/plugins/bootstrap-notify.js' %}"></script>
+<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
+<script src="{% static 'js/light-bootstrap-dashboard.js' %} " type="text/javascript"></script>
+<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
+
+<script>
+  $(document).ready(function(){
+    $("#res").hide(function(){
+      $("#click").click(function(){
+
+        $("#res").show();
+        // return false;
+
+      });
+
+    });
+  });
+</script>
+
+
+
+
 </html>
 
 
@@ -345,4 +229,13 @@ $(document).ready(function () {
 
 
 
- -->
+
+
+
+
+
+
+
+
+
+
