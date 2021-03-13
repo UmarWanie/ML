@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'k3r3uzz42@lo=u$z_3u2&x3cx13#^p+z$xama2vpck#%!z&i$='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['diabetes2-predictor.herokuapp.com', 'localhost', '127.0.0.1']
 
